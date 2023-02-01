@@ -1,11 +1,11 @@
-/*//this includes the vehicle class as a module
-const VehicleModule = require("./vehicleBaseClass")
+//this includes the vehicle class as a module
+const VehicleModule = require("./vehicleBaseClass") //vehicleModule must be imported.
 
 //this shows how to call from this module...
-let v = new VehicleModule.Vehicle("Mecury", "Sedan", "1965", "color", "mileage");
-console.log(v.make)*/
+//let v = new VehicleModule.Vehicle("Mecury", "Sedan", "1965", "color", "mileage");
+//console.log(v.make)*/
 
-class Car extends Vehicle {
+class Car extends VehicleModule { //You extend from the imported vehicleModule
 constructor(make, model, year, color, mileage){
     super(make, model, year, color, mileage)
     this.maximumPassengers= 5; 
@@ -15,8 +15,10 @@ constructor(make, model, year, color, mileage){
     this.fuel= 10;
     this.schedule= false; 
 }
-    loadPassenger (num) {
-        if (num < 5) {
+    loadPassenger (num) { //The logic within the function is not correct. 
+        //The logic should reflect: if passenger less than maximumPassengers then availableRoom == true
+        if (num < 5) { //if (this.passenger < this.maxPassengers && (num + this.passenger) <= this.maxPassengers) {
+            //You also need to change this.passenger -> this. passenger = num
             this.availableRoom= true
             return this.availableRoom
         }else {
