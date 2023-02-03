@@ -17,8 +17,8 @@ class Car extends VehicleModule{
         this.scheduleService = false;
     }
 
-    loadPassenger(numOfPassengers){
-        if(numOfPassengers <= 5){
+    loadPassenger(numOfPassengers){// 
+        if(numOfPassengers <= 5){ //The condition should be ((numOfPassengers+this.passenger) <= this.maxPassengers)
             this.passenger = numOfPassengers
             console.log(`There is enough room for everyone!`)
             return this.passenger
