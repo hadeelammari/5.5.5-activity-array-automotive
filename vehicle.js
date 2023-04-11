@@ -1,18 +1,20 @@
 import Vehicle from "./vehicleBaseClass";
 
-class MercuryA28 Sedan extends Vehicle {
+class Car extends Vehicle {
     constructor(make, model, year, color, mileage) {
     super(make, model, year, color, mileage)  
         this.make = "Mercury Sedan";
         this.model = "A28";
         this.year = year;
-        this.color = color;
+        this.color = blue;
         this.maximumPassengers = 5;
         this.passenger = 0;
         this.speed = 160;
         this.mileage = 10;
-        this.started = false;
+        this.started = true;
         this.numberOfWheels = 4;
+        this.scheduleService = false;   
+
     }
 
     loadPassenger(num){
@@ -21,20 +23,12 @@ class MercuryA28 Sedan extends Vehicle {
             this.passengers += num;
             console.log (`${num} passengers loaded`);
         }
-    }
+    
 
     else {
         console.log(`Sorry, no room for ${num} passengers`);
     }
-}
-    start() {
-        if (this.fuel > 0) {
-        this.started = true;
-        console.log("Engine Started !") 
-        } else {
-        console.log("Engine cannot start...");
-        }
-    }
+
     accelerate() {
         if (this.started) {
             if (this.fuel > 0) {
@@ -102,5 +96,5 @@ class MercuryA28 Sedan extends Vehicle {
 
 //This exports things you want to use from this "module", more info in readme
 module.exports = {
-    Vehicle
+    MercuryA28Sedan,
 }

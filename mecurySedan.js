@@ -1,13 +1,51 @@
-//this includes the vehicle class as a module
-// import Vehicle from "./vehicleBaseClass";
+// let { MercuryA28Sedan} = require('./mercuryA28Sedan')
 
-//this shows how to call from this module...
-let car = new Vehicle ("Mecury", "Sedan", "1965", "color", "mileage");
+// //Mercury boject 
+// let car = new MercuryA28Sedan ("Mecury", "Sedan", "1965", "blue", "0");
 
-//to start the car 
-car.start();
+// car.loadPassenger(3);
 
-for (let i = 0; i< 5; i++) {
-    car.accelerate();
+// //start engine 
+// car.start()
+
+// //schedule maintenance 
+
+// car.scheduleService(4000)
+
+
+class Car extends Vehicle {
+    constructor(make, model, year, color, mileage) {
+    super(make, model, year, color, mileage)  
+        // this.make = "Mercury Sedan";
+        // this.model = "A28";
+        // this.year = year;
+        // this.color = blue;
+        this.maximumPassengers = 5;
+        this.passenger = 0;
+        this.speed = 160;
+        this.mileage = 10;
+        // this.started = true;
+        this.numberOfWheels = 4;
+        this.scheduleService = false;   
+    }
 }
 
+
+checkService(){
+    if( this.mileage > 3000){
+        this.scheduleService;
+        return.this.scheduleService;
+    }
+}
+
+
+start() {
+    if (this.fuel > 0) {
+    console.log("Engine Started !") 
+    return.this.started = true;
+    } 
+    else {
+    console.log("Engine cannot start...");
+    return this.started = false;
+    }
+}
