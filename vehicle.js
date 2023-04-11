@@ -1,23 +1,38 @@
-class Vehicle {
+import Vehicle from "./vehicleBaseClass";
+
+class MercuryA28 Sedan extends Vehicle {
     constructor(make, model, year, color, mileage) {
-        this.make = make;
-        this.model = model;
+    super(make, model, year, color, mileage)  
+        this.make = "Mercury Sedan";
+        this.model = "A28";
         this.year = year;
         this.color = color;
+        this.maximumPassengers = 5;
         this.passenger = 0;
-        this.speed = 0;
-        this.mileage = mileage;
+        this.speed = 160;
+        this.mileage = 10;
         this.started = false;
-        this.numberOfWheels = 0;
+        this.numberOfWheels = 4;
     }
 
+    loadPassenger(num){
+        let availableRoom = this.passenger < this.maximumPassengers;
+        if (availableRoom) {
+            this.passengers += num;
+            console.log (`${num} passengers loaded`);
+        }
+    }
+
+    else {
+        console.log(`Sorry, no room for ${num} passengers`);
+    }
+}
     start() {
         if (this.fuel > 0) {
-            return this.started = true;
-            console.log("engine started...!!!");
+        this.started = true;
+        console.log("Engine Started !") 
         } else {
-            return this.started = false;
-            console.log("engine cannot start...");
+        console.log("Engine cannot start...");
         }
     }
     accelerate() {
