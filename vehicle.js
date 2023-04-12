@@ -1,35 +1,20 @@
-import Vehicle from "./vehicleBaseClass";
-
-class Car extends Vehicle {
+class Vehicle{
     constructor(make, model, year, color, mileage) {
-    super(make, model, year, color, mileage)  
-        this.make = "Mercury Sedan";
-        this.model = "A28";
+        this.make = make;
+        this.model = model;
         this.year = year;
-        this.color = blue;
-        this.maximumPassengers = 5;
+        this.color = color;
         this.passenger = 0;
-        this.speed = 160;
-        this.mileage = 10;
-        this.started = true;
-        this.numberOfWheels = 4;
-        this.scheduleService = false;   
+        this.speed = 0;
+        this.mileage = mileage;
+        this.started = false;
+        this.numberOfWheels = 0;
+        this.fuel = 100;  
 
     }
+}
 
-    loadPassenger(num){
-        let availableRoom = this.passenger < this.maximumPassengers;
-        if (availableRoom) {
-            this.passengers += num;
-            console.log (`${num} passengers loaded`);
-        }
-    
-
-    else {
-        console.log(`Sorry, no room for ${num} passengers`);
-    }
-
-    accelerate() {
+    accelerate(); {
         if (this.started) {
             if (this.fuel > 0) {
                 console.log(this.speed += 1);
@@ -42,14 +27,14 @@ class Car extends Vehicle {
             alert("You need to start the engine first.");
         }
     }
-    decelerate() {
+    decelerate(); {
         if (this.started) {
             if (this.fuel > 0) {
                 if (this.speed > 0) {
                     console.log(this.speed -= 1);
                     this.fuel = this.fuel - 1;
                 } else {
-                    console.log(this + " has stopped moving");
+                    console.log(this + "has stopped moving");
                     this.fuel = this.fuel - 1;
                 }
             } else {
@@ -60,41 +45,23 @@ class Car extends Vehicle {
             alert("You need to start the engine first.");
         }
     }
-    stop() {
+    stop(); {
+        console.log('this engine is off')
         this.started = false;
     }
 
-    drive() {
-        accelerate();
-    }
-    brake() {
-        decelerate();
-    }
-
-    autoPark()
-    {
-
-    }
-
-    autoDrive()
-    {
-      
-    }
-
-    typeOfVehicle(wheels) {
-        if (this.numberOfWheels == 8 && 8 == wheels) {
+    typeOfVehicle(); {
+        if (this.numberOfWheels == 8) {
             console.log(this.model + " " + this.make + " is a Truck");
-        } else if (this.numberOfWheels == 4 && 4 == wheels) {
-            console.log(this.model + " " + this.make + " is a CAr");
-        } else if (this.numberOfWheels == 2 && 2 == wheels) {
+        } else if (this.numberOfWheels == 4) {
+            console.log(this.model + " " + this.make + " is a Car");
+        } else if (this.numberOfWheels == 2) {
             console.log(this.model + " " + this.make + " is a Bike");
         } else {
             console.log("Unknown type of vehicle");
         }
     }
-}
 
-//This exports things you want to use from this "module", more info in readme
-module.exports = {
-    MercuryA28Sedan,
-}
+
+
+module.exports = { Vehicle }
