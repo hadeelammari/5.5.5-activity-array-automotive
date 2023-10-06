@@ -1,9 +1,9 @@
 //this includes the vehicle class as a module
-const VehicleModule = require("./vehicleBaseClass")
+let Vehicle = require("./vehicleBaseClass")
 
 //this shows how to call from this module...
-let v = new VehicleModule.Vehicle("Mercury", "Sedan", "1965", "color", "mileage");
-console.log(v.make)
+// let v = new Vehicle("Mercury", "Sedan", "1965", "color", "mileage");
+// console.log(v.make)
 
 
 //After you write the derived Car class, you should test it out.
@@ -18,17 +18,16 @@ class mercurySedan extends Vehicle{
         super(make, model, year, color, mileage)
         this.maximumPassengers = 5
         this.passengers = 0;
-        this.speed = 0;
         this.numberOfWheels = 4;
         this.maximumSpeed = 160;
         this.fuel = 10;
-        this.started = false;
         this.scheduleService = false;
     }
 
     //not very confident about what i did here vvv
     loadPassenger(num){
-        if (this.passengers < this.maximumPassengers){
+        if (num + this.passengers < this.maximumPassengers){
+            this.passengers = num;
          return this.passengers;
         } else {
             console.log(this.model + this.make + "is full")
