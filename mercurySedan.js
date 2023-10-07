@@ -13,7 +13,7 @@ let Vehicle = require("./vehicleBaseClass")
 
 //TO DO: Code the Car subclass here or in index.js file, i.e. class Car extends Vehicle ...
 
-class mercurySedan extends Vehicle{
+class mercurySedan extends Vehicle.Vehicle{ // You need to reference the class you are inheriting from
     constructor(make, model, year, color, mileage){
         super(make, model, year, color, mileage)
         this.maximumPassengers = 5
@@ -25,7 +25,7 @@ class mercurySedan extends Vehicle{
     }
 
     //not very confident about what i did here vvv
-    loadPassenger(num){
+    loadPassengers(num){
         if (num + this.passengers < this.maximumPassengers){
             this.passengers = num;
          return this.passengers;
@@ -37,20 +37,19 @@ class mercurySedan extends Vehicle{
     }
     
     //kind of blanking if I need to bring the start() method over since it's a method that the class Vehicle does//
-    start() {
-        if (this.fuel > 0) {
-            return this.started = true;
-            console.log("engine started...!!!");
-        } else {
-            return this.started = false;
-            console.log("engine cannot start...");
-        }
-    }
+    //No need for the start as it will be called from the parent class 
+ 
 
-    scheduleService(){
-        if (this.mileage > 30000){
-            return this.scheduleService = true;
+    maintainanceRequired(){ // You can not have a property and a method with the same excat name 
+        if (this.mileage > 30000){ //When you return the code after the return won't run so your console.log need to be before the return
             console.log("Time for a maintenance request")
+            return this.scheduleService = true;
+            
+        }
+        else {
+            console.log("Not yet time for a maintenance request")
+            return this.scheduleService = false;
+            
         }
     }
     
@@ -61,7 +60,7 @@ let newSedan = new mercurySedan('Mercury', 'Sedan', '2023', 'charcoal', '0');
 
 newSedan.start()
 newSedan.loadPassengers(3)
-newSedan.scheduleService()
+newSedan.maintainanceRequired()
 
 
 
